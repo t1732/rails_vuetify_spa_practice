@@ -13,9 +13,16 @@ require('vuetify/dist/vuetify.min.css')
 
 import Vue from 'vue/dist/vue.esm'
 import Vuetify from 'vuetify'
+import App from './App'
+import router from './router'
 
 Vue.use(Vuetify)
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Vue({ el: '#app' })
+    new Vue({
+        el: '#app',
+        router,
+        template: '<App/>',
+        components: { App }
+    })
 })
