@@ -1,24 +1,14 @@
-# README
+# RailsVuetifySample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+vuetify練習用
 
-Things you may want to cover:
+vuetify: Material Design compoents (https://vuetifyjs.com)
 
-* Ruby version
+## install
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+yarn install
+foreman start
+open http://localhost:5000
+```
