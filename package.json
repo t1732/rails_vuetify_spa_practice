@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "coffeescript": "1.12.7",
+    "vue": "^2.5.2",
     "vuetify": "^0.16.9"
   },
   "devDependencies": {

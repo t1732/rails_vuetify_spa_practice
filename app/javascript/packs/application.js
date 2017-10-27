@@ -7,4 +7,15 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+//console.log('Hello World from Webpacker')
+
+require('vuetify/dist/vuetify.min.css')
+
+import Vue from 'vue/dist/vue.esm'
+import Vuetify from 'vuetify'
+
+Vue.use(Vuetify)
+
+document.addEventListener('DOMContentLoaded', () => {
+    new Vue({ el: '#app' })
+})

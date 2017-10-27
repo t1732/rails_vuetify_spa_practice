@@ -1,0 +1,187 @@
+# 自動生成等のファイルはすべて除外
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/migrate/20170901014038_add_missing_unique_indices.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20170901014038_add_missing_unique_indices.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/n20170901074037_devise_create_staffs.rb'
+
+# Layout ===========================================================================================
+# メソッド呼び出しの行から1段階インデントする
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# 空行は1行までの例外
+Layout/EmptyLines:
+  Exclude:
+    - 'Gemfile'
+
+# ブロック内上下のスペース不可チェックの例外
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
+# 余分なスペース制限チェックはインラインコメントの都合で無効
+Layout/ExtraSpacing:
+  Enabled: false
+
+# Hashのインデント
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+# メソットチェイン複数行インデント
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# 配列内側前後のスペース不可
+Layout/SpaceInsideBrackets:
+  Exclude:
+    - 'bin/webpack'
+
+# Lint =============================================================================================
+# TODO: warningの理由が謎で保留
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/controllers/personal_setting/staffs_controller_spec.rb'
+
+# if文の==判定だが、アサインしつつの判定ができなくなるので無効
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# Metrics ==========================================================================================
+Metrics/AbcSize:
+  Max: 30 # 15がbest
+  Exclude:
+    - 'db/migrate/*'
+
+# Offense count: 36
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 547
+
+# Offense count: 1
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 152
+
+# Offense count: 2
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - 'config/initializers/*'
+    - 'config/settings/*'
+    - 'db/migrate/*'
+  IgnoredPatterns:
+    - '\A#'            # comment line
+    - '\A\s*#'         # comment line
+    - '\A\s*\"http'    # url string
+    - '\s\|\|\s'
+    - '\%\(.*\)'
+    - '\A\s*has_many'
+    - '\A\s*validates'
+
+# Offense count: 30
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 38
+
+Metrics/ModuleLength:
+  Max: 200
+
+# Offense count: 1
+# Configuration parameters: CountKeywordArgs.
+Metrics/ParameterLists:
+  Max: 6
+
+# Offense count: 2
+Metrics/PerceivedComplexity:
+  Max: 12
+
+# Naming ===========================================================================================
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+
+# Security =========================================================================================
+Security/Eval:
+  Exclude:
+    - 'config/app_setting.rb'
+
+# Style ============================================================================================
+# 日本語コメント許可
+Style/AsciiComments:
+  Enabled: false
+
+# ドキュメントコメントは必須にしない
+Style/Documentation:
+  Enabled: false
+
+# if elsifつなげるよりcaseをblankにして居列したほうが視認性がいい場合もあるのでこれは無効
+Style/EmptyCaseCondition:
+  Enabled: false
+
+# Ruby3.0から文字列リテラルがデフォルトでfreezeされるようになるシュミレーションマジックコメント必須チェックを無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Exclude:
+    - 'db/migrate/*'
+
+# extend selfは使う
+Style/ModuleFunction:
+  Enabled: false
+
+# lambdaを->で利用する場合の複数行不可チェックを無効
+Style/Lambda:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '()'
+    '%I': '()'
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+
+# シングルクオート強制を無効
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  Exclude:
+    - 'db/migrate/*'
+
+# 追記するときにし易いように意図的にカンマ置く場合もあるので無効
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+# Rails ============================================================================================
+Rails:
+  Enabled: true
+
+Rails/NotNullColumn:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+# Rails.joinで"/a/b/c.rb"のように指定したいので
+Rails/FilePath:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: true
+  Exclude:
+    - 'config/initializers/customize_form_field.rb'
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
