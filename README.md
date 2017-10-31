@@ -10,5 +10,5 @@ vuetify: Material Design compoents (https://vuetifyjs.com)
 bundle install
 yarn install
 foreman start
-open http://localhost:5000
+open http://localhost:3000
 ```
