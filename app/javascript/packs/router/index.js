@@ -1,22 +1,20 @@
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
+import views from './../components/views'
 
 Vue.use(VueRouter)
-
-const Home = { template: '<div>Home</div>' }
-const Items = { template: '<div>Items</div>' }
 
 export default new VueRouter({
     routes: [
         {
             path: '/',
             name: 'Home',
-            component: Home
+            component: views.Home
         },
         {
             path: '/items',
             name: 'Items',
-            component: Items
+            component: views.Items
         },
     ]
 })

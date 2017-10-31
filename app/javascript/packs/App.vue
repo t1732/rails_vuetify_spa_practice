@@ -5,7 +5,7 @@ v-app
   v-navigation-drawer(dark temporary :clipped="clipped" v-model="drawer" app)
     v-list
       template(v-for="item in items")
-        v-list-tile(ripple @click="linkTo(item.title)")
+        v-list-tile(ripple @click="linkTo(item.path)")
           v-list-tile-action
             v-icon(dark v-html="item.icon")
           v-list-tile-content
@@ -13,30 +13,39 @@ v-app
   main
     v-content
       v-container(fluid)
+        v-page-loading(v-if="pageLoading")
         router-view
   v-footer(app)
 </template>
 
 <script>
-  import router from './router'
+  import { mapState } from 'vuex'
+  import PageLoading from './components/PageLoading'
 
   export default {
+    components: {
+      'v-page-loading': PageLoading
+    },
+
     data () {
       return {
         drawer: false,
         clipped: true,
         items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'Items', icon: 'list' },
+          { title: 'ホーム',   icon: 'dashboard', path: '/' },
+          { title: 'アイテム', icon: 'list',      path: '/items' },
         ],
         toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
       }
     },
 
+    computed: mapState([
+      'pageLoading'
+    ]),
+
     methods: {
-      linkTo(title) {
-        console.log("link: " + title)
-        router.push({ name: title })
+      linkTo(path) {
+        this.$router.push(path)
       }
     }
   }
