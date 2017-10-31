@@ -1,10 +1,10 @@
 <template lang="pug">
-.page-loading
+.icon-loading
   v-progress-circular(indeterminate :size="50" color="primary")
 </template>
 
 <style lang="sass">
-.page-loading
+.icon-loading
   position: absolute
   text-align: center
   top: 0

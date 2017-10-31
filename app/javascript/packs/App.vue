@@ -13,18 +13,18 @@ v-app
   main
     v-content
       v-container(fluid)
-        v-page-loading(v-if="pageLoading")
+        icon-loading(v-if="pageLoading")
         router-view
   v-footer(app)
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import PageLoading from './components/PageLoading'
+  import IconLoading from './components/IconLoading'
 
   export default {
     components: {
-      'v-page-loading': PageLoading
+      IconLoading
     },
 
     data () {
