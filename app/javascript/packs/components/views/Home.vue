@@ -1,5 +1,6 @@
 <template lang="pug">
-  div Home
+  v-container
+    div Home
 </template>
 
 <script>
@@ -10,7 +11,6 @@ export default {
 
   methods: {
     fetchData () {
-      this.$store.commit("setPageLoading", true)
     }
   }
 }

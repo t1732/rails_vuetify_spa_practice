@@ -1,7 +1,7 @@
 import Home from './Home'
-import Items from './Items'
+import Books from './Books'
 
 export default {
     Home,
-    Items
+    Books
 }

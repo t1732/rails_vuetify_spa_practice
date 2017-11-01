@@ -1,6 +1,6 @@
 <template lang="pug">
 v-app
-  v-toolbar(dark :color="toolbarColor" app)
+  v-toolbar(fixed dark :color="toolbarColor" app)
     v-toolbar-side-icon(@click="drawer = !drawer")
   v-navigation-drawer(dark temporary :clipped="clipped" v-model="drawer" app)
     v-list
@@ -12,9 +12,8 @@ v-app
             v-list-tile-title(v-text="item.title")
   main
     v-content
-      v-container(fluid)
-        icon-loading(v-if="pageLoading")
-        router-view
+      icon-loading(v-if="pageLoading")
+      router-view
   v-footer(app)
 </template>
 
@@ -32,8 +31,8 @@ v-app
         drawer: false,
         clipped: true,
         items: [
-          { title: 'ホーム',   icon: 'dashboard', path: '/' },
-          { title: 'アイテム', icon: 'list',      path: '/items' },
+          { title: 'Home',  icon: 'dashboard', path: '/' },
+          { title: 'Books', icon: 'list',      path: '/books' },
         ],
         toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
       }

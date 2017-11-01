@@ -12,9 +12,9 @@ export default new VueRouter({
             component: views.Home
         },
         {
-            path: '/items',
-            name: 'Items',
-            component: views.Items
+            path: '/books',
+            name: 'Books',
+            component: views.Books
         },
     ]
 })

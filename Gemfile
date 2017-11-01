@@ -62,3 +62,9 @@ group :development do
   gem 'foreman', require: false
   gem 'rubocop', require: false
 end
+
+gem 'active_model_serializers', '~> 0.10.0'
+
+group :development, :test do
+  gem 'faker'
+end
