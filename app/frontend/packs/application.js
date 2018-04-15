@@ -9,9 +9,9 @@
 
 import Vue from 'vue/dist/vue.esm'
 import Vuetify from 'vuetify'
-import App from './app'
-import router from './router'
-import store from './store'
+import App from '../app'
+import router from '../router'
+import store from '../store'
 
 import 'vuetify/dist/vuetify.min.css'
 
