@@ -5,16 +5,16 @@ import views from './../components/views'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-    routes: [
-        {
-            path: '/',
-            name: 'Home',
-            component: views.Home
-        },
-        {
-            path: '/books',
-            name: 'Books',
-            component: views.Books
-        },
-    ]
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: views.Home
+    },
+    {
+      path: '/books',
+      name: 'Books',
+      component: views.Books
+    },
+  ]
 })
