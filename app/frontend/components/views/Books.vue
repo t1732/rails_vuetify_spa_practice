@@ -6,9 +6,9 @@ v-flex(xs12 sm6 offset-sm3)
         v-list-tile
           v-list-tile-content
             v-list-tile-title {{ book.title }}
-            v-list-tile-sub-title(class="grey--text text--darken-4") {{ book.author }}
+            v-list-tile-sub-title.grey--text.text--darken-4 {{ book.author }}
             v-list-tile-sub-title {{ book.publisher }}
-        v-divider(v-if="index + 1 < books.length" :key="book.title")
+        v-divider(v-if="isDivider(index)")
 </template>
 
 <script>
@@ -33,6 +33,10 @@ export default {
           this.books = response.data
           this.$store.commit("setPageLoading", false)
         });
+    },
+
+    isDivider (index) {
+      return index + 1 < this.books.length
     }
   }
 }
