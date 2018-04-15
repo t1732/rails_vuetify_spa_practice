@@ -12,7 +12,7 @@ v-flex(xs12 sm6 offset-sm3)
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '../../utils/axios'
 
 export default {
   data () {
