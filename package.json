@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.4",
     "axios": "^0.17.0",
+    "babel-polyfill": "^6.26.0",
     "class-transformer": "^0.1.10",
     "coffeescript": "1.12.7",
     "pug": "^2.0.0-rc.4",

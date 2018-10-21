@@ -12,6 +12,7 @@ import Vuetify from 'vuetify'
 import App from '../app'
 import router from '../router'
 import store from '../store'
+import 'babel-polyfill'
 
 import 'vuetify/dist/vuetify.min.css'
 

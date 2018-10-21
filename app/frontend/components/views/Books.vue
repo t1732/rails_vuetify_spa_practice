@@ -22,17 +22,23 @@ export default {
       books: [],
     }
   },
+
   created () {
     this.fetchData()
   },
+
   methods: {
-    fetchData () {
+    async fetchData () {
+      if (this.$store.state.pageLoading) return
       this.$store.commit("setPageLoading", true)
-      axios.get("/books")
-        .then(response => {
-          this.books = response.data.map(e => plainToClass(domain.Book, e))
-          this.$store.commit("setPageLoading", false)
-        });
+      try {
+        const response = await axios.get("/books")
+        this.books = response.data.map(e => plainToClass(domain.Book, e))
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.$store.commit("setPageLoading", false)
+      }
     },
     isDivider (index) {
       return index + 1 < this.books.length
