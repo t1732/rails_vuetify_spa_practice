@@ -11,8 +11,8 @@ export default class Book {
   genre: string
 
   @Transform(value => dayjs(value), { toClassOnly: true })
-  created_at: Dayjs
+  createdAt: Dayjs
 
   @Transform(value => dayjs(value), { toClassOnly: true })
-  updated_at: Dayjs
+  updatedAt: Dayjs
 }
