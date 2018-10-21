@@ -12,6 +12,8 @@ v-flex(xs12 sm6 offset-sm3)
 </template>
 
 <script>
+import { plainToClass } from 'class-transformer'
+import domain from '../../domain'
 import axios from '../../utils/axios'
 
 export default {
@@ -20,21 +22,18 @@ export default {
       books: [],
     }
   },
-
   created () {
     this.fetchData()
   },
-
   methods: {
     fetchData () {
       this.$store.commit("setPageLoading", true)
       axios.get("/books")
-        .then((response) => {
-          this.books = response.data
+        .then(response => {
+          this.books = response.data.map(e => plainToClass(domain.Book, e))
           this.$store.commit("setPageLoading", false)
         });
     },
-
     isDivider (index) {
       return index + 1 < this.books.length
     }
