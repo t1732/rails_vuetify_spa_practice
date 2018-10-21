@@ -7,6 +7,7 @@
     "babel-polyfill": "^6.26.0",
     "class-transformer": "^0.1.10",
     "coffeescript": "1.12.7",
+    "dayjs": "^1.7.7",
     "pug": "^2.0.0-rc.4",
     "pug-loader": "^2.3.0",
     "sass-loader": "^6.0.6",

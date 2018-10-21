@@ -22,11 +22,9 @@ export default {
       books: [],
     }
   },
-
   created () {
     this.fetchData()
   },
-
   methods: {
     async fetchData () {
       if (this.$store.state.pageLoading) return

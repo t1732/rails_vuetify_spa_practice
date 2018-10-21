@@ -1,4 +1,7 @@
 'use strict'
+import { Transform } from 'class-transformer'
+import * as dayjs from 'dayjs'
+import { Dayjs} from 'dayjs'
 
 export default class Book {
   id: number
@@ -6,6 +9,10 @@ export default class Book {
   author: string
   publisher: string
   genre: string
-  created_at: string
-  uppdated_at: string
+
+  @Transform(value => dayjs(value), { toClassOnly: true })
+  created_at: Dayjs
+
+  @Transform(value => dayjs(value), { toClassOnly: true })
+  updated_at: Dayjs
 }
