@@ -15,6 +15,7 @@ v-flex(xs12 sm6 offset-sm3)
 import { plainToClass } from 'class-transformer'
 import domain from '../../domain'
 import axios from '../../utils/axios'
+import GraphqlResponse from '../../utils/graphql-response'
 
 export default {
   data () {
@@ -30,8 +31,10 @@ export default {
       if (this.$store.state.pageLoading) return
       this.$store.commit("setPageLoading", true)
       try {
-        const response = await axios.get("/books")
-        this.books = response.data.map(e => plainToClass(domain.Book, e))
+        const response = new GraphqlResponse(await axios.post("/api/graphql", {
+          query: '{ books {id, title, author, publisher, updatedAt, createdAt} }'
+        }))
+        this.books = response.data.books.map(e => plainToClass(domain.Book, e))
       } catch (error) {
         console.log(error)
       } finally {

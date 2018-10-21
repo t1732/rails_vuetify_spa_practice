@@ -60,13 +60,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'slim-rails'
+gem 'graphql'
 
 group :development do
   gem 'foreman', require: false
   gem 'rubocop', require: false
+  gem 'graphiql-rails'
 end
-
-gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   gem 'faker'
