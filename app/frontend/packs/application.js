@@ -18,11 +18,11 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
 document.addEventListener('DOMContentLoaded', () => {
+  const el = document.body.appendChild(document.createElement('app'))
   const app = new Vue({
-    el: "#app",
+    el: el,
     store,
     router,
-    template: '<App/>',
-    components: { App }
+    render: h => h(App)
   })
 })
