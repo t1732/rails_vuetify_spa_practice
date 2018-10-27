@@ -15,6 +15,7 @@ import store from '../store'
 import 'babel-polyfill'
 
 import 'vuetify/dist/vuetify.min.css'
+import '../assets/stylesheets/transition'
 
 Vue.use(Vuetify)
 

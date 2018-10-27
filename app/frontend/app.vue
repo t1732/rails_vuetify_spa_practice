@@ -13,7 +13,8 @@ v-app
   main
     v-content
       icon-loading(v-if="pageLoading")
-      router-view
+      transition(name="slide-x")
+        router-view
   v-footer(app)
 </template>
 
