@@ -12,7 +12,7 @@ v-app
             v-list-tile-title(v-text="item.title")
   main
     v-content
-      icon-loading(v-if="pageLoading")
+      icon-loading(v-model="pageLoading")
       transition(name="slide-x")
         router-view
   v-footer(app)

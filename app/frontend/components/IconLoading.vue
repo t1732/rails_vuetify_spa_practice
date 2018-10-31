@@ -1,17 +1,35 @@
 <template lang="pug">
-.icon-loading
-  v-progress-circular(indeterminate :size="50" color="primary")
+v-slide-y-transition
+  v-btn#page-loading-icon(
+    v-if="value"
+    :class="{ loading: value }"
+    color="white"
+    fixed
+    top
+    fab)
+    v-progress-circular(:size="35" indeterminate color="primary")
 </template>
 
-<style lang="sass">
-.icon-loading
+<script>
+export default {
+  name: 'IconPageLoading',
+  props: {
+    value: Boolean,
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+#page-loading-icon
   position: absolute
-  text-align: center
-  top: 0
-  right: 0
-  bottom: 0
   left: 0
-  margin: auto
-  width: 100%
-  height: 3.2rem
+  right: 0
+  margin:
+    left: auto
+    top: 0
+    bottom: auto
+    right: auto
+
+  &.loading
+    margin-top: 50px
 </style>
