@@ -32,8 +32,8 @@ v-app
         drawer: false,
         clipped: true,
         items: [
-          { title: 'Home',  icon: 'dashboard', path: '/' },
-          { title: 'Books', icon: 'list',      path: '/books' },
+          { title: 'Home', icon: 'dashboard', path: '/' },
+          { title: 'List', icon: 'list',      path: '/list' },
         ],
         toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
       }
