@@ -8,14 +8,14 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'vuetify/dist/vuetify.min.css'
-import '../assets/stylesheets/transition'
+import '@/assets/stylesheets/transition'
 
 import 'reflect-metadata'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import App from '../app'
-import router from '../router'
-import store from '../store'
+import App from '@/app'
+import router from '@/router'
+import store from '@/store'
 import 'babel-polyfill'
 
 Vue.use(Vuetify)

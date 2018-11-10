@@ -21,9 +21,9 @@ v-container(fluid grid-list-md)
 
 <script>
 import { plainToClass } from 'class-transformer'
-import model from '../../models'
-import axios from '../../utils/axios'
-import GraphqlResponse from '../../utils/graphql-response'
+import model from '@/models'
+import axios from '@/utils/axios'
+import GraphqlResponse from '@/utils/graphql-response'
 
 export default {
   created () {
