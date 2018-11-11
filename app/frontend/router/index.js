@@ -16,5 +16,10 @@ export default new VueRouter({
       name: 'List',
       component: views.List
     },
+    {
+      path: '/Carousel',
+      name: 'Carousel',
+      component: views.Carousel
+    },
   ]
 })

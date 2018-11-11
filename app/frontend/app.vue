@@ -19,23 +19,24 @@ v-app
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import IconLoading from './components/IconLoading'
+import { mapState } from 'vuex'
+import IconLoading from './components/IconLoading'
 
-  export default {
-    components: {
-      IconLoading
-    },
+export default {
+  components: {
+    IconLoading
+  },
 
-    data () {
-      return {
-        drawer: false,
-        clipped: true,
-        items: [
-          { title: 'Home', icon: 'dashboard', path: '/' },
-          { title: 'List', icon: 'list',      path: '/list' },
-        ],
-        toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
+  data () {
+    return {
+      drawer: false,
+      clipped: true,
+      items: [
+        { title: 'Home', icon: 'dashboard', path: '/' },
+        { title: 'List', icon: 'list',      path: '/list' },
+        { title: 'Carousel', icon: 'image', path: '/carousel' },
+      ],
+      toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
       }
     },
 
