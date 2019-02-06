@@ -18,15 +18,15 @@ v-app
   v-footer(app)
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { mapState } from 'vuex'
-import IconLoading from './components/IconLoading'
+import IconLoading from '@/components/IconLoading'
 
-export default {
+export default Vue.extend({
   components: {
     IconLoading
   },
-
   data () {
     return {
       drawer: false,
@@ -37,17 +37,15 @@ export default {
         { title: 'Carousel', icon: 'image', path: '/carousel' },
       ],
       toolbarColor: 'red darken-4', // https://vuetifyjs.com/style/colors
-      }
-    },
-
-    computed: mapState([
-      'pageLoading'
-    ]),
-
-    methods: {
-      linkTo(path) {
-        this.$router.push(path)
-      }
+    }
+  },
+  computed: mapState([
+    'pageLoading'
+  ]),
+  methods: {
+    linkTo(path: string) {
+      this.$router.push(path)
     }
   }
+})
 </script>

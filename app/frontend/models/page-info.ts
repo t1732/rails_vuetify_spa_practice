@@ -1,13 +1,6 @@
-'use strict'
-
 export default class PageInfo {
-  hasNextPage: boolean
-  hasPreviousPage: boolean
-  startCursor: string
-  endCursor: string
-
-  constructor () {
-    this.startCursor = ""
-    this.endCursor = ""
-  }
+  hasNextPage: boolean = false
+  hasPreviousPage: boolean = false
+  startCursor: string = ""
+  endCursor: string = ""
 }

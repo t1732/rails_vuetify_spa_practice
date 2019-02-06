@@ -13,13 +13,14 @@ v-flex(xs12 sm6 offset-sm3)
 </template>
 
 <script>
+import Vue from 'vue'
 import lozad from 'lozad'
 import { plainToClass } from 'class-transformer'
 import model from '@/models'
 import axios from '@/utils/axios'
 import GraphqlResponse from '@/utils/graphql-response'
 
-export default {
+export default Vue.extend({
   data () {
     return {
       observer: null,
@@ -70,5 +71,5 @@ export default {
       return index + 1 < this.books.length
     }
   }
-}
+})
 </script>

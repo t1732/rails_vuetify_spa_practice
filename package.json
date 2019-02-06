@@ -2,7 +2,7 @@
   "name": "rails_vuetify_sample",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.4",
+    "@rails/webpacker": "3.5",
     "axios": "^0.17.0",
     "babel-polyfill": "^6.26.0",
     "class-transformer": "^0.1.10",
@@ -23,6 +23,7 @@
     "vuex": "^3.0.0"
   },
   "devDependencies": {
-    "webpack-dev-server": ">=3.1.11"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "2.11.2"
   }
 }

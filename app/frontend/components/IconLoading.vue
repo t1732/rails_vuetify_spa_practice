@@ -10,13 +10,15 @@ v-slide-y-transition
     v-progress-circular(:size="35" indeterminate color="primary")
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'IconPageLoading',
   props: {
-    value: Boolean,
-  },
-}
+    value: Boolean
+  }
+})
 </script>
 
 <style lang="sass" scoped>

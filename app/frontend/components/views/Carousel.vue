@@ -9,6 +9,8 @@ v-flex(xs12 sm6 offset-sm3)
 </template>
 
 <script>
+import Vue from 'vue'
+
 const DEFAULT_IMAGE = "https://picsum.photos/800/500/?image=404"
 
 class Numberbox {
@@ -21,7 +23,7 @@ class Numberbox {
   }
 }
 
-export default {
+export default Vue.extend({
   data () {
     const box = new Numberbox(1000, 1080)
     return {
@@ -35,5 +37,5 @@ export default {
       this.images[index].src = DEFAULT_IMAGE
     },
   },
-}
+})
 </script>

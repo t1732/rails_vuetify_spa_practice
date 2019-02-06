@@ -20,12 +20,13 @@ v-container(fluid grid-list-md)
 </template>
 
 <script>
+import Vue from 'vue'
 import { plainToClass } from 'class-transformer'
 import model from '@/models'
 import axios from '@/utils/axios'
 import GraphqlResponse from '@/utils/graphql-response'
 
-export default {
+export default Vue.extend({
   created () {
     this.fetchData()
   },
@@ -47,5 +48,5 @@ export default {
       }
     }
   }
-}
+})
 </script>
