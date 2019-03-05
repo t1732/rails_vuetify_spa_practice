@@ -18,7 +18,12 @@ import App from '@/components/App'
 import router from '@/router'
 import store from '@/store'
 
-Vue.use(Vuetify)
+declare const VUETIFY_CSP_NONCE: string
+Vue.use(Vuetify, {
+  options: {
+    cspNonce: VUETIFY_CSP_NONCE
+  }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))
