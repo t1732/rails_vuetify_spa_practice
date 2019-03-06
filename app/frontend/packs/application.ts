@@ -8,7 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 import 'babel-polyfill'
 import 'reflect-metadata'
-
+import 'typeface-roboto'
+import 'material-icons/iconfont/material-icons.css'
 import 'vuetify/dist/vuetify.min.css'
 import '@/assets/stylesheets/transition'
 
