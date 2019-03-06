@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el: el,
     store,
     router,
-    render: h => h(App)
+    render: h => h(App),
+    mounted () {
+      const loading = document.getElementById('entry-loading')
+      if (loading) loading.remove()
+    }
   })
 })
