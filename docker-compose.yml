@@ -1,0 +1,27 @@
+version: '3.0'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SECRET_KEY_BASE: $SECRET_KEY_BASE
+    volumes:
+      - app-public:/app/public
+      - ./db:/app/db
+    command: "./puma-start.sh"
+
+  nginx:
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - app-public:/app/public
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    links:
+      - app
+
+volumes:
+  app-public:

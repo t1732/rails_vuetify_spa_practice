@@ -56,7 +56,7 @@ export default Vue.extend({
     async fetchData () {
       this.$store.commit("setPageLoading", true)
       try {
-        const response = new GraphqlResponse(await axios.post("http://localhost:3000/api/graphql", {
+        const response = new GraphqlResponse(await axios.post(API_ENDPOINT, {
           query: `{books(first: 25, after: "${this.edgeAfter}") { pageInfo { hasNextPage, hasPreviousPage, startCursor, endCursor }, edges { node { id, title, author, publisher, updatedAt, createdAt }}}}`
         }))
         this.pageInfo = plainToClass(model.pageInfo, response.data.books.pageInfo)

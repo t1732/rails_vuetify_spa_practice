@@ -37,7 +37,7 @@ export default Vue.extend({
     async fetchData () {
       this.$store.commit("setPageLoading", true)
       try {
-        const response = new GraphqlResponse(await axios.post("http://localhost:3000/api/graphql", {
+        const response = new GraphqlResponse(await axios.post(API_ENDPOINT, {
           query: `{appInfo { systems { label version} jsPackages { label version }}}`
         }))
         this.appInfo = plainToClass(model.AppInfo, response.data.appInfo)

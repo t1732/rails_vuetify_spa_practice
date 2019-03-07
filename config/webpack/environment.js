@@ -13,8 +13,11 @@ environment.loaders.append('vue', vue)
 environment.loaders.append('pug', pug)
 
 const VUETIFY_CSP_NONCE = shortid.generate()
+const API_HOST = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
+const API_ENDPOINT = `${API_HOST}/api/graphql`;
 environment.plugins.append('DefinePlugin', new webpack.DefinePlugin({
-  VUETIFY_CSP_NONCE: JSON.stringify(VUETIFY_CSP_NONCE)
+  VUETIFY_CSP_NONCE: JSON.stringify(VUETIFY_CSP_NONCE),
+  API_ENDPOINT: JSON.stringify(API_ENDPOINT)
 }))
 
 environment.plugins.prepend('HtmlWebpackPlugin', new HtmlWebpackPlugin({

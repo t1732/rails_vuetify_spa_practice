@@ -70,6 +70,7 @@ group :development do
   gem 'graphiql-rails'
 end
 
-group :development, :test do
-  gem 'faker'
-end
+# group :development, :test do
+#   gem 'faker'
+# end
+gem 'faker'  # for docker production demo

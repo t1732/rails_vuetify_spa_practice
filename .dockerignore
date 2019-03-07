@@ -1,0 +1,14 @@
+.foreman
+.git
+.gitignore
+.rubocop.yml
+Dockerfile
+README.md
+log
+db/*.sqlite3
+db/*.sqlite3-journal
+docker
+docker-compose.yml
+node_modules
+public/packs
+tmp
