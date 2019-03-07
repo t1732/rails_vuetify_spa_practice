@@ -34,10 +34,13 @@ class AppInfo
   private
 
   def load_revision
-    if File.exist?(rev_file_path)
+    case
+    when File.exist?(rev_file_path)
       @revision = File.read(rev_file_path).strip
-    else
+    when Dir.exist?(Rails.root.join(".git"))
       @revision = `git rev-parse HEAD`&.strip
+    else
+      @revision = "unkown"
     end
   end
 
