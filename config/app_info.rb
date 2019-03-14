@@ -8,10 +8,15 @@ class AppInfo
     "@rails/webpacker",
     "axios",
     "class-transformer",
+    "csp-html-webpack-plugin",
     "dayjs",
+    "html-webpack-plugin",
     "lozad",
+    "webpack",
     "vue",
+    "vue-router",
     "vuetify",
+    "vuex",
   ].freeze
 
   def initialize
