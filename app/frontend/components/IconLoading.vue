@@ -1,6 +1,6 @@
 <template lang="pug">
 v-slide-y-transition
-  v-btn#page-loading-icon(
+  v-btn.page__loading-icon(
     v-if="value"
     :class="{ loading: value }"
     color="white"
@@ -21,16 +21,15 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="sass" scoped>
-#page-loading-icon
+<style lang="styl" scoped>
+.page__loading-icon
   position: absolute
   left: 0
   right: 0
-  margin:
-    left: auto
-    top: 0
-    bottom: auto
-    right: auto
+  margin-left: auto
+  margin-top: 0
+  margin-bottom: auto
+  margin-right: auto
 
   &.loading
     margin-top: 50px

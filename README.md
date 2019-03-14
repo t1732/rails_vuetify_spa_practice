@@ -20,7 +20,7 @@ rails db:create
 rails db:migrate
 rails db:seed
 foreman start
-open http://localhost:3035/packs/index.html
+open http://localhost:3000/packs/index.html
 ```
 
 ### for docker

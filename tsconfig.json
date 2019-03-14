@@ -11,8 +11,9 @@
     "strict": true,
     "noImplicitReturns": true,
     "target": "es5",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
+      "*": ["node_modules/*"],
       "@/*": ["app/frontend/*"]
     }
   },

@@ -15,7 +15,7 @@ import '@/assets/stylesheets/transition'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import App from '@/components/App'
+import App from '@/components/App.vue'
 import router from '@/router'
 import store from '@/store'
 
