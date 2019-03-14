@@ -25,7 +25,6 @@ environment.plugins.append('DefinePlugin', new webpack.DefinePlugin({
   API_ENDPOINT: JSON.stringify(API_ENDPOINT)
 }))
 
-const x = path.resolve(__dirname, '..', '..', 'app/frontend/templates/index.pug')
 environment.plugins.prepend('HtmlWebpackPlugin', new HtmlWebpackPlugin({
   // title: 'Rails Vuetify SPA',
   inject: true,
