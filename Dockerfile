@@ -39,7 +39,8 @@ RUN cp -R /tmp/node_modules ./ && \
   cp config/database.docker.yml config/database.yml && \
   bundle exec rails tmp:create && \
   bundle exec rails webpacker:compile && \
-  mv public/packs $APP_HOME/tmp/dist
+  mv public/packs $APP_HOME/tmp/dist && \
+  rm -rf node_modules
 
 RUN echo '#!/bin/bash\n\
   set -ef\n\
