@@ -2,6 +2,7 @@ const { environment } = require('@rails/webpacker')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const pug = require('./loaders/pug')
 const stylus = require('./loaders/stylus')
 const typescript =  require('./loaders/typescript')
@@ -32,6 +33,10 @@ environment.plugins.prepend('HtmlWebpackPlugin', new HtmlWebpackPlugin({
   'meta': {
     'viewport': 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui'
   }
+}))
+
+environment.plugins.prepend('ScriptExtHtmlWebpackPlugin', new ScriptExtHtmlWebpackPlugin({
+  defaultAttribute: 'defer'
 }))
 
 const cspOptions = {
