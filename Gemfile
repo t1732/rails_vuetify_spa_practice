@@ -67,6 +67,7 @@ gem 'graphql'
 group :development do
   gem 'foreman', require: false
   gem 'rubocop', require: false
+  gem 'rubocop-rails'
   gem 'graphiql-rails'
 end
 
