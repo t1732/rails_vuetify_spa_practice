@@ -57,10 +57,10 @@ export default Vue.extend({
       this.$store.commit("setPageLoading", true)
       try {
         const response = new GraphqlResponse(await axios.post(API_ENDPOINT, {
-          query: `{books(first: 25, after: "${this.edgeAfter}") { pageInfo { hasNextPage, hasPreviousPage, startCursor, endCursor }, edges { node { id, title, author, publisher, updatedAt, createdAt }}}}`
+          query: `{booksConnection(first: 25, after: "${this.edgeAfter}") { pageInfo { hasNextPage, hasPreviousPage, startCursor, endCursor }, edges { node { id, title, author, publisher, updatedAt, createdAt }}}}`
         }))
-        this.pageInfo = plainToClass(model.pageInfo, response.data.books.pageInfo)
-        this.books = this.books.concat(response.data.books.edges.map(e => plainToClass(model.Book, e.node)))
+        this.pageInfo = plainToClass(model.pageInfo, response.data.booksConnection.pageInfo)
+        this.books = this.books.concat(response.data.booksConnection.edges.map(e => plainToClass(model.Book, e.node)))
       } catch (error) {
         console.log(error)
       } finally {
