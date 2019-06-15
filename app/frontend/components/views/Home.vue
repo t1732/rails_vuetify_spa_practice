@@ -23,8 +23,10 @@ v-container(fluid grid-list-md)
 import Vue from 'vue'
 import { plainToClass } from 'class-transformer'
 import model from '@/models'
-import axios from '@/utils/axios'
 import GraphqlResponse from '@/utils/graphql-response'
+import RepositoryFactory from '@/repositories/repository-factory'
+
+const homeRepository = RepositoryFactory.get("home")
 
 export default Vue.extend({
   created () {
@@ -37,10 +39,8 @@ export default Vue.extend({
     async fetchData () {
       this.$store.commit("setPageLoading", true)
       try {
-        const response = new GraphqlResponse(await axios.post(API_ENDPOINT, {
-          query: `{appInfo { systems { label version} jsPackages { label version }}}`
-        }))
-        this.appInfo = plainToClass(model.AppInfo, response.data.appInfo)
+        const response = new GraphqlResponse(await homeRepository.get())
+        this.appInfo = response.data.appInfo
       } catch (error) {
         console.log(error)
       } finally {

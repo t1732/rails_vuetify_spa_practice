@@ -17,8 +17,11 @@ import Vue from 'vue'
 import lozad from 'lozad'
 import { plainToClass } from 'class-transformer'
 import model from '@/models'
-import axios from '@/utils/axios'
+import RepositoryFactory from '@/repositories/repository-factory'
 import GraphqlResponse from '@/utils/graphql-response'
+
+const ROW_PER_PAGE = 25
+const BooksRepository = RepositoryFactory.get('books')
 
 export default Vue.extend({
   data () {
@@ -39,9 +42,11 @@ export default Vue.extend({
   },
   computed: {
     edgeAfter () {
-      if (this.pageInfo) return this.pageInfo.endCursor
+      if (this.pageInfo) {
+        return this.pageInfo.endCursor
+      }
       return ""
-    },
+    }
   },
   watch: {
     pageInfo (value) {
@@ -50,17 +55,16 @@ export default Vue.extend({
           this.observer.observe()
         })
       }
-    },
+    }
   },
   methods: {
     async fetchData () {
       this.$store.commit("setPageLoading", true)
       try {
-        const response = new GraphqlResponse(await axios.post(API_ENDPOINT, {
-          query: `{booksConnection(first: 25, after: "${this.edgeAfter}") { pageInfo { hasNextPage, hasPreviousPage, startCursor, endCursor }, edges { node { id, title, author, publisher, updatedAt, createdAt }}}}`
-        }))
-        this.pageInfo = plainToClass(model.pageInfo, response.data.booksConnection.pageInfo)
-        this.books = this.books.concat(response.data.booksConnection.edges.map(e => plainToClass(model.Book, e.node)))
+        const response = new GraphqlResponse(await BooksRepository.getPages(ROW_PER_PAGE, this.edgeAfter))
+        const elm = response.getElement('booksConnection')
+        this.pageInfo = elm.pageInfo
+        this.books = this.books.concat(elm.items.map(e => plainToClass(model.Book, e)))
       } catch (error) {
         console.log(error)
       } finally {
