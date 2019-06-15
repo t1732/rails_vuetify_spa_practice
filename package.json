@@ -25,6 +25,7 @@
     "ts-loader": "^5.3.3",
     "typeface-roboto": "^0.0.54",
     "typescript": "^3.3.3333",
+    "vee-validate": "^2.2.10",
     "vue": "^2.6.8",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.1",

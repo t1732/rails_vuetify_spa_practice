@@ -1,5 +1,14 @@
 <template lang="pug">
 v-flex(xs12 sm6 offset-sm3)
+  fab-add(@click="onAdd")
+  v-dialog(:value="formDialog" max-width="360" persistent)
+    book-form(
+      :processing="formProcessing"
+      :resource.sync="formResource"
+      :validates="formValidates"
+      :form-errors.sync="formErrors"
+      @submit="onSubmit"
+      @cancel="formDialog = false")
   v-card(v-if="books.length > 0")
     v-list(two-line)
       template(v-for="(book, index) in books")
@@ -17,6 +26,8 @@ import Vue from 'vue'
 import lozad from 'lozad'
 import { plainToClass } from 'class-transformer'
 import model from '@/models'
+import BookForm from '@/components/BookForm'
+import FabAdd from '@/components/FabAdd'
 import RepositoryFactory from '@/repositories/repository-factory'
 import GraphqlResponse from '@/utils/graphql-response'
 
@@ -24,11 +35,20 @@ const ROW_PER_PAGE = 25
 const BooksRepository = RepositoryFactory.get('books')
 
 export default Vue.extend({
+  components: {
+    BookForm,
+    FabAdd
+  },
   data () {
     return {
       observer: null,
       pageInfo: null,
       books: [],
+      formDialog: false,
+      formResource: null,
+      formValidates: model.Book.validates,
+      formProcessing: false,
+      formErrors: []
     }
   },
   created () {
@@ -73,6 +93,30 @@ export default Vue.extend({
     },
     isDivider (index) {
       return index + 1 < this.books.length
+    },
+    onAdd () {
+      this.formResource = new model.Book()
+      this.formDialog = true
+    },
+    async onSubmit (resource) {
+      if (this.formProcessing) {
+        return
+      }
+      this.formProcessing = true
+      try {
+        const response = new GraphqlResponse(await BooksRepository.create(resource.getCreateParams()))
+        const data = response.getMutationData("createBook")
+        if (data.errors.length > 0) {
+          this.formErrors = data.errors
+        } else {
+          this.formDialog = false
+          this.books.unshift(plainToClass(model.Book, data.book))
+        }
+      } catch (error) {
+
+      } finally {
+        this.formProcessing = false
+      }
     }
   }
 })

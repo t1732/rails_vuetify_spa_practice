@@ -17,13 +17,19 @@ import Vuetify from 'vuetify'
 import App from '@/components/App.vue'
 import router from '@/router'
 import store from '@/store'
+import VeeValidate, { Validator } from 'vee-validate'
 
 declare const VUETIFY_CSP_NONCE: string
 Vue.use(Vuetify, {
+  icons: {
+    add: 'add'
+  },
   options: {
     cspNonce: VUETIFY_CSP_NONCE
   }
 })
+
+Vue.use(VeeValidate)
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))
