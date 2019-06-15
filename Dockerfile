@@ -1,4 +1,4 @@
-FROM ruby:2.6.1
+FROM ruby:2.6.3
 LABEL maintainer "t1723 <oo1732oo@gmail.com>"
 
 ENV LANG C.UTF-8
@@ -10,7 +10,7 @@ ENV RAILS_LOG_TO_STDOUT true
 RUN apt-get update -qq && apt-get install -y build-essential apt-transport-https apt-utils
 
 # for a JS runtime
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
   apt-get install -y nodejs
 
 # for yarn
